@@ -1,26 +1,9 @@
 #!/usr/bin/env zsh
 
-# ------------------------------------------------------------------------------
-#
-# Sugar-free - A simple and minimal theme for oh-my-zsh
-#
-# Based on my favorite aspects of the Pure and Candy themes,
-# as well as some Git-based snippets from <https://gist.github.com/joshdick/4415470>
-#
-# Pure <https://github.com/sindresorhus/pure>
-# Candy <https://github.com/BinaryMuse/oh-my-zsh/blob/master/themes/candy.zsh-theme>
-#
-# ------------------------------------------------------------------------------
-
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_PREFIX="%{$fg[white]%}(%{$reset_color%}"
 GIT_PROMPT_SUFFIX="%{$fg[white]%})%{$reset_color%}"
 
-# These colors match my .gitconfig:
-# [color "status"]
-#     added = yellow
-#     changed = green
-#     untracked = cyan
 GIT_PROMPT_UNTRACKED="%{$F[009]%}%B!%b%{$reset_color%}"
 GIT_PROMPT_MODIFIED="%{$F[010]%}%B+%b%{$reset_color%}"
 GIT_PROMPT_STAGED="%{$F[011]%}%B*%b%{$reset_color%}"
@@ -60,5 +43,5 @@ git_prompt_string() {
   [ -n "$git_where" ] && echo "$GIT_PROMPT_PREFIX%{$fg[white]%}${git_where#(refs/heads/|tags/)}$(parse_git_state)$GIT_PROMPT_SUFFIX"
 }
 
-PROMPT=$'%{$F[012]%}%n%{$F[007]%}@%{$F[013]%}%m%{$reset_color%} %{$F[010]%}[%~]%{$reset_color%} $(git_prompt_string) \
-%{$F[012]%}%{$F[012]%}❯%{$reset_color%} '
+PROMPT=$'%{$F(012)%}%n%{$F(007)%}@%{$F(013)%}%m%{$reset_color%} %{$F(010)%}[%~]%{$reset_color%} $(git_prompt_string) \
+%{$F(012)%}%{$F(012)%}❯%{$reset_color%} '
