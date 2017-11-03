@@ -46,5 +46,5 @@ git_prompt_string() {
 #ROMPT=$'%{$F(012)%}%n%{$F(007)%}@%{$F(013)%}%m%{$reset_color%} %{$F(010)%}[%~]%{$reset_color%} $(git_prompt_string) \
 #%{$F(012)%}%{$F(012)%}❯%{$reset_color%} '
 
-PROMPT=$'%{%F(012)%}%n%{%F(007)%}@%{%F(013)%}%m%f %{%F(010)%}[%~]%f $(git_prompt_string) \
-%{%F(012)%}%{%F(012)%}❯%f '
+PROMPT=$'%F{012}%n%F{007}@%F{013}%m%f %F{010}[%~]%f $(git_prompt_string) \
+%F{012}%F{012}%❯%f '
