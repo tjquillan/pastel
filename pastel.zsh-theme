@@ -1,12 +1,12 @@
 #!/usr/bin/env zsh
 
 # Modify the colors and symbols in these variables as desired.
-GIT_PROMPT_PREFIX="%{%F{white}%}(%f"
-GIT_PROMPT_SUFFIX="%{%F{white}%})%f"
+GIT_PROMPT_PREFIX="%F{white}(%f"
+GIT_PROMPT_SUFFIX="%F{white})%f"
 
-GIT_PROMPT_UNTRACKED="%{%F{009}%}%B!%b%f"
-GIT_PROMPT_MODIFIED="%{%F{010}%}%B+%b%f"
-GIT_PROMPT_STAGED="%{%F{011}%}%B*%b%f"
+GIT_PROMPT_UNTRACKED="%F{009}%B!%b%f"
+GIT_PROMPT_MODIFIED="%F{010}%B+%b%f"
+GIT_PROMPT_STAGED="%F{011}%B*%b%f"
 
 # Show Git branch/tag, or name-rev if on detached head
 parse_git_branch() {
@@ -47,6 +47,6 @@ git_prompt_string() {
 #%{$F(012)%}%{$F(012)%}❯%{$reset_color%} '
 
 PROMPT=$'%F{012}%n%F{007}@%F{013}%m%f %F{010}[%~]%f $(git_prompt_string) \
-%(?.%F{012}.%F{009})${❯}%f '
+%(?.%F{012}.%F{009})❯%f '
 
 #%(?.%F{012}.%F{009})${❯}%f 
