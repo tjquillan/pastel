@@ -40,13 +40,13 @@ parse_git_state() {
 # If inside a Git repository, print its branch and state
 git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "$GIT_PROMPT_PREFIX%{$fg[white]%}${git_where#(refs/heads/|tags/)}$(parse_git_state)$GIT_PROMPT_SUFFIX"
+  [ -n "$git_where" ] && echo "$GIT_PROMPT_PREFIX%F[white]${git_where#(refs/heads/|tags/)}$(parse_git_state)$GIT_PROMPT_SUFFIX"
 }
 
 #ROMPT=$'%{$F(012)%}%n%{$F(007)%}@%{$F(013)%}%m%{$reset_color%} %{$F(010)%}[%~]%{$reset_color%} $(git_prompt_string) \
 #%{$F(012)%}%{$F(012)%}❯%{$reset_color%} '
 
 PROMPT=$'%F{012}%n%F{007}@%F{013}%m%f %F{010}[%~]%f $(git_prompt_string) \
-$(?.%F{012}.%F{009})❯%f '
+%F{012}❯%f '
 
 #%(?.%F{012}.%F{009})${❯}%f 
