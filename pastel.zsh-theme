@@ -1,4 +1,7 @@
-#!/usr/bin/env zsh
+#!/bin/env zsh
+
+#Allow Command Substitution in prompt
+setopt promptsubst
 
 # Modify the colors and symbols in these variables as desired.
 GIT_PROMPT_PREFIX="%F{white}(%f"
