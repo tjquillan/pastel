@@ -9,3 +9,6 @@ This theme has only been tested to work with zplug. Please inform me on any comp
 
 ### ZPlug
 	zplug "iboyperson/pastel", as:theme
+
+### Zplugin
+    zplugin light iboyperson/pastel
