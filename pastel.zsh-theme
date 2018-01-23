@@ -16,7 +16,7 @@ EXIT_CODE=" %(?..%F{009}(%?%)%f)"
 PR_COLOR="%(?.%F{012}❯%f.%F{009}❯%f)"
 
 # Check the UID
-if [[ $UID -ne 0 ]]; then # normal user
+if [ $UID -ne 0 ]; then # normal user
   PR_USER="%F{012}%n%f"
 else # root
   PR_USER="%F{009}%n%f"
@@ -33,7 +33,7 @@ function parse_git_state() {
   # Compose this value via multiple conditional appends.
   local GIT_STATE=""
 
-  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+  if [ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]; then
     GIT_STATE="$GIT_STATE$GIT_PROMPT_UNTRACKED"
   fi
 
@@ -45,7 +45,7 @@ function parse_git_state() {
     GIT_STATE="$GIT_STATE$GIT_PROMPT_STAGED"
   fi
 
-  if [[ -n $GIT_STATE ]]; then
+  if [ -n $GIT_STATE ]; then
     echo " $GIT_STATE"
   fi
 
