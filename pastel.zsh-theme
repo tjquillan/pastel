@@ -57,5 +57,34 @@ function git_prompt_string() {
   [ -n "$git_where" ] && echo " $GIT_PROMPT_PREFIX%F{white}${git_where#(refs/heads/|tags/)}$(parse_git_state)$GIT_PROMPT_SUFFIX"
 }
 
+# Disable default venv
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+function venv() {
+
+  VENV_SHOW="${VENV_SHOW=true}"
+  VENV_PREFIX="${VENV_PREFIX="$PROMPT_DEFAULT_PREFIX"}"
+  VENV_SUFFIX="${VENV_SUFFIX="$PROMPT_DEFAULT_SUFFIX"}"
+  VENV_SYMBOL="${VENV_SYMBOL=""}"
+  # The (A) expansion flag creates an array, the '=' activates word splitting
+  VENV_GENERIC_NAMES="${(A)=VENV_GENERIC_NAMES=virtualenv venv .venv}"
+  VENV_COLOR="${VENV_COLOR="blue"}"
+
+
+  # Check if the current directory running via Virtualenv
+  [ -n "$VIRTUAL_ENV" ] || return
+
+  local 'venv'
+
+  if [[ "${VENV_GENERIC_NAMES[(i)$VIRTUAL_ENV:t]}" -le \
+        "${#VENV_GENERIC_NAMES}" ]]
+  then
+    venv="$VIRTUAL_ENV:h:t"
+  else
+    venv="$VIRTUAL_ENV:t"
+  fi
+  echo "${venv}"
+}
+
 # Set Prompt
-PROMPT=$'$PR_USER%F{007}@%F{013}%m%f %F{010}[%~]%f$(git_prompt_string)$EXIT_CODE\n$PR_COLOR '
+PROMPT=$'$PR_USER%F{007}@%F{013}%m%f %F{010}[%~]%f$(git_prompt_string) %F{011}$(venv)%f $EXIT_CODE\n$PR_COLOR '
