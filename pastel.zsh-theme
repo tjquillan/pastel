@@ -87,4 +87,6 @@ function venv() {
 }
 
 # Set Prompt
-PROMPT=$'$PR_USER%F{007}@%F{013}%m%f %F{010}[%~]%f$(git_prompt_string) %F{011}$(venv)%f $EXIT_CODE\n$PR_COLOR '
+PS1=$'$PR_USER%F{007}@%F{013}%m%f %F{010}[%~]%f$(git_prompt_string) %F{011}$(venv)%f $EXIT_CODE\n$PR_COLOR '
+PS2='$PR_COLOR'
+PS3='$PR_COLOR '
